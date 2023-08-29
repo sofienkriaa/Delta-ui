@@ -41,6 +41,7 @@ public class translater : MonoBehaviour
         screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
         offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
 
+        // Identify selected translater
         if (gameObject.name == "translater-1")
         {
             direction = direction1;
@@ -74,18 +75,21 @@ public class translater : MonoBehaviour
         float posToStart = Vector3.Distance(curPosition, startPos);
         float edgeDistance = Vector3.Distance(maxPos, startPos);
 
+        // Check if the Translater is moving inside the limits
         if ((posToStart + Vector3.Distance(curPosition, maxPos)) < edgeDistance + 0.2)
         {
             transform.position = curPosition;
         }
         else
         {
+            // If the mouse moves out of the upper limit, block the translater at the max position
             if (posToStart > edgeDistance)
             {
                 transform.position = maxPos;
             }
             else
             {
+                // If the mouse moves out of the lower limit, block the translater at the min position
                 transform.position = startPos;
             }
         }
