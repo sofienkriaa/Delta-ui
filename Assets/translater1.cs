@@ -99,24 +99,22 @@ public class translater : MonoBehaviour
 
                 // solution alpha
                 double alpha1 = (-c16 + Math.Sqrt(Math.Pow(c16, 2) - 4 * c15 * c17)) / (2 * c15);
-                Vector3 positionAlpha1 = (float)alpha1 * directions[i] + startPositions[i];
+                Vector3 positionAlpha1 = (float)alpha1 * directions[i] + startPositions[i] - addedOffsets[i];
 
                 double alpha2 = (-c16 - Math.Sqrt(Math.Pow(c16, 2) - 4 * c15 * c17)) / (2 * c15);
-                Vector3 positionAlpha2 = (float)alpha2 * directions[i] + startPositions[i];
+                Vector3 positionAlpha2 = (float)alpha2 * directions[i] + startPositions[i] - addedOffsets[i];
 
-
-                float Alpha1posToStart = Vector3.Distance(positionAlpha1, startPositions[i]);
-
-                float edgeDistance = Vector3.Distance(maxPos, startPositions[i]);
-
-                if ((Alpha1posToStart + Vector3.Distance(positionAlpha1, maxPos)) < edgeDistance + 0.2)
+                if ((positionAlpha1.y > 0) && (positionAlpha1.y < maxPos.y))
                 {
-
-                    GameObject.Find(translaterNames[i]).transform.position = positionAlpha1 - addedOffsets[i];
+                    GameObject.Find(translaterNames[i]).transform.position = positionAlpha1;
+                }
+                else if ((positionAlpha2.y > 0) && (positionAlpha2.y < maxPos.y))
+                {
+                    GameObject.Find(translaterNames[i]).transform.position = positionAlpha2;
                 }
                 else
                 {
-                    GameObject.Find(translaterNames[i]).transform.position = positionAlpha2 - addedOffsets[i];
+                    GameObject.Find(translaterNames[i]).transform.position = maxPos;
                 }
             }
         }
