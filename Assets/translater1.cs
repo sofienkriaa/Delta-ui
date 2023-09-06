@@ -112,7 +112,27 @@ public class translater : MonoBehaviour
                 {
                     GameObject.Find(translaterNames[i]).transform.position = positionAlpha2;
                 }
-                else
+                else if ((positionAlpha1.y < 0) && (positionAlpha2.y < 0))
+                {
+                    GameObject.Find(translaterNames[i]).transform.position = startPositions[i];
+                }
+                else if ((positionAlpha1.y > maxPos.y) && (positionAlpha2.y > maxPos.y))
+                {
+                    GameObject.Find(translaterNames[i]).transform.position = maxPos;
+                }
+                else if (Math.Abs(positionAlpha1.y) < Math.Abs(positionAlpha2.y - maxPos.y))
+                {
+                    GameObject.Find(translaterNames[i]).transform.position = startPositions[i];
+                }
+                else if (Math.Abs(positionAlpha2.y) < Math.Abs(positionAlpha1.y - maxPos.y))
+                {
+                    GameObject.Find(translaterNames[i]).transform.position = startPositions[i];
+                }
+                else if (Math.Abs(positionAlpha1.y) > Math.Abs(positionAlpha2.y - maxPos.y))
+                {
+                    GameObject.Find(translaterNames[i]).transform.position = maxPos;
+                }
+                else if (Math.Abs(positionAlpha2.y) > Math.Abs(positionAlpha1.y - maxPos.y))
                 {
                     GameObject.Find(translaterNames[i]).transform.position = maxPos;
                 }
