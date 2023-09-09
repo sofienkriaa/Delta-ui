@@ -279,7 +279,7 @@ ConfigurableJoint:
   m_GameObject: {fileID: 135816316}
   m_ConnectedBody: {fileID: 1060353404}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0.5, z: 0}
+  m_Anchor: {x: 0.42, y: -0.65, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
@@ -288,9 +288,9 @@ ConfigurableJoint:
   m_XMotion: 0
   m_YMotion: 0
   m_ZMotion: 0
-  m_AngularXMotion: 0
+  m_AngularXMotion: 2
   m_AngularYMotion: 2
-  m_AngularZMotion: 0
+  m_AngularZMotion: 2
   m_LinearLimitSpring:
     spring: 0
     damper: 0
@@ -633,7 +633,7 @@ ConfigurableJoint:
   m_GameObject: {fileID: 387860050}
   m_ConnectedBody: {fileID: 1786613063}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0.5, z: 0}
+  m_Anchor: {x: 0.28, y: -0.64, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
@@ -642,9 +642,9 @@ ConfigurableJoint:
   m_XMotion: 0
   m_YMotion: 0
   m_ZMotion: 0
-  m_AngularXMotion: 0
+  m_AngularXMotion: 2
   m_AngularYMotion: 2
-  m_AngularZMotion: 0
+  m_AngularZMotion: 2
   m_LinearLimitSpring:
     spring: 0
     damper: 0
@@ -1342,7 +1342,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.46141788, y: 0.5358111, z: 0.46141788, w: 0.5358111}
   m_LocalPosition: {x: 0.01, y: 11.16, z: 2.44}
-  m_LocalScale: {x: 14, y: 0.15, z: 0.5}
+  m_LocalScale: {x: 12, y: 0.15, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1365,9 +1365,9 @@ ConfigurableJoint:
   m_XMotion: 0
   m_YMotion: 0
   m_ZMotion: 0
-  m_AngularXMotion: 0
+  m_AngularXMotion: 2
   m_AngularYMotion: 2
-  m_AngularZMotion: 0
+  m_AngularZMotion: 2
   m_LinearLimitSpring:
     spring: 0
     damper: 0
@@ -1775,7 +1775,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.19539443, y: 0.16973023, z: 0.7292217, w: 0.6334417}
   m_LocalPosition: {x: 2.19, y: 11.26, z: -1.3}
-  m_LocalScale: {x: 14, y: 0.15, z: 0.5}
+  m_LocalScale: {x: 12, y: 0.15, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1798,9 +1798,9 @@ ConfigurableJoint:
   m_XMotion: 0
   m_YMotion: 0
   m_ZMotion: 0
-  m_AngularXMotion: 0
+  m_AngularXMotion: 2
   m_AngularYMotion: 2
-  m_AngularZMotion: 0
+  m_AngularZMotion: 2
   m_LinearLimitSpring:
     spring: 0
     damper: 0
@@ -2275,7 +2275,7 @@ ConfigurableJoint:
   m_GameObject: {fileID: 1508290756}
   m_ConnectedBody: {fileID: 848829903}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0.5, z: 0}
+  m_Anchor: {x: 0.49, y: 0.58, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
@@ -2284,9 +2284,9 @@ ConfigurableJoint:
   m_XMotion: 0
   m_YMotion: 0
   m_ZMotion: 0
-  m_AngularXMotion: 0
+  m_AngularXMotion: 2
   m_AngularYMotion: 2
-  m_AngularZMotion: 0
+  m_AngularZMotion: 2
   m_LinearLimitSpring:
     spring: 0
     damper: 0
@@ -2723,7 +2723,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7289935, y: 0.6337043, z: 0.19533327, w: 0.1698006}
   m_LocalPosition: {x: -2.23, y: 11.27, z: -1.31}
-  m_LocalScale: {x: 14, y: 0.15, z: 0.5}
+  m_LocalScale: {x: 12, y: 0.15, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2746,9 +2746,9 @@ ConfigurableJoint:
   m_XMotion: 0
   m_YMotion: 0
   m_ZMotion: 0
-  m_AngularXMotion: 0
+  m_AngularXMotion: 2
   m_AngularYMotion: 2
-  m_AngularZMotion: 0
+  m_AngularZMotion: 2
   m_LinearLimitSpring:
     spring: 0
     damper: 0
