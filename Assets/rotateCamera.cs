@@ -33,6 +33,7 @@ public class rotateCamera : MonoBehaviour
     }*/
     void Update()
     {
+        // Control Camera rotation after pressing space
         if (Input.GetKey(KeyCode.Space))
         {
             float rotateHorizontal = Input.GetAxis("Mouse X");
@@ -41,6 +42,7 @@ public class rotateCamera : MonoBehaviour
             transform.Rotate(transform.right * rotateVertical * sensitivity);
         }
 
+        //Control Translation with arrows
         if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
@@ -57,6 +59,8 @@ public class rotateCamera : MonoBehaviour
         {
             transform.Translate(new Vector3(0, speed * Time.deltaTime, 0));
         }
+
+        // Zoom in/Zoom out with + and - Keys
         if (Input.GetKey(KeyCode.KeypadPlus))
         {
             transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
