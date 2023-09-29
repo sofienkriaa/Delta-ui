@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
+using System.IO.Ports;
 
 public class translater : MonoBehaviour
 {
@@ -42,6 +43,8 @@ public class translater : MonoBehaviour
     private Vector3[] startPositions = { startPos1, startPos2, startPos3 };
     private Vector3[] addedOffsets = { Vector3.zero, addedOffsetPos2 * 1.1f, addedOffsetPos3 };
     private string[] translaterNames = { "translater-1", "translater-2", "translater-3" };
+
+    static public SerialPort arduino = new SerialPort("COM7", 9600);
 
     void OnMouseDown()
     {
@@ -136,6 +139,18 @@ public class translater : MonoBehaviour
                 {
                     GameObject.Find(translaterNames[i]).transform.position = maxPos;
                 }
+
+                arduino.Open();
+                if (arduino.IsOpen)
+                {
+                    arduino.Write(i + "");
+                    Debug.Log(i);
+                }
+                else
+                {
+                    Debug.Log("Not open");
+                }
+                arduino.Close();
             }
         }
         else
