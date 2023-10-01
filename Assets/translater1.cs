@@ -44,7 +44,6 @@ public class translater : MonoBehaviour
     private Vector3[] addedOffsets = { Vector3.zero, addedOffsetPos2 * 1.1f, addedOffsetPos3 };
     private string[] translaterNames = { "translater-1", "translater-2", "translater-3" };
 
-    static public SerialPort arduino = new SerialPort("COM7", 9600);
 
     void OnMouseDown()
     {
@@ -152,17 +151,17 @@ public class translater : MonoBehaviour
                 // Use chosen position vector
                 GameObject.Find(translaterNames[i]).transform.position = usedVector;
 
-                arduino.Open();
-                if (arduino.IsOpen)
+                //  Get arduino SerialPort from Camera script
+                if (rotateCamera.arduino.IsOpen)
                 {
-                    arduino.Write(i + "");
+                    rotateCamera.arduino.Write(i + "");
                     Debug.Log(i);
                 }
                 else
                 {
                     Debug.Log("Not open");
                 }
-                arduino.Close();
+
             }
         }
         else

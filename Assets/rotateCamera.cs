@@ -1,36 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO.Ports;
 using UnityEngine;
 
 public class rotateCamera : MonoBehaviour
 {
     public float sensitivity = 1;
     public float speed = 5.0f;
-    // Start is called before the first frame update
+
+    // For my setup, Arduino is connected on the COM7 Port.
+    // In the future, the user shall be able to choose the right port.
+    static public SerialPort arduino = new SerialPort("COM7", 9600);
+
     void Start()
     {
-        
+        // Arduino is initialized here, Because this code is only used
+        // for the camera, not multiple components like the translate script
+        arduino.Open();
     }
 
-    /*void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-            Debug.Log("Pressed left-click.");
-
-        if (Input.GetMouseButtonDown(1))
-        {
-
-            Debug.Log("Pressed right-click.");
-            float rotateHorizontal = Input.GetAxis("Mouse X");
-            float rotateVertical = Input.GetAxis("Mouse Y");
-            transform.Rotate(-transform.up * rotateHorizontal * sensitivity);
-            transform.Rotate(transform.right * rotateVertical * sensitivity);
-
-        }
-
-        if (Input.GetMouseButtonDown(2))
-            Debug.Log("Pressed middle-click.");
-    }*/
     void Update()
     {
         // Control Camera rotation after pressing space
