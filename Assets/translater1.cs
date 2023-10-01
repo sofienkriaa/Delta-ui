@@ -100,45 +100,57 @@ public class translater : MonoBehaviour
                 // a11^2 + a12^2 + a13^2 - a11.c12 - a12.c13 - a13.c14 + c11
                 double c17 = Math.Pow(Vector3.Distance(startPositions[i], Vector3.zero), 2) - 2 * Vector3.Dot(startPositions[i], camCurr) + c11;
 
-                // solution alpha
+                // solution alpha (2 Solutions of 2nd degree polynomial)
                 double alpha1 = (-c16 + Math.Sqrt(Math.Pow(c16, 2) - 4 * c15 * c17)) / (2 * c15);
                 Vector3 positionAlpha1 = (float)alpha1 * directions[i] + startPositions[i] - addedOffsets[i];
 
                 double alpha2 = (-c16 - Math.Sqrt(Math.Pow(c16, 2) - 4 * c15 * c17)) / (2 * c15);
                 Vector3 positionAlpha2 = (float)alpha2 * directions[i] + startPositions[i] - addedOffsets[i];
 
+                // Used Vector Buffer
+                Vector3 usedVector = startPositions[i];
+
+                // If the 1st Alpha solution is in the accepted Range
                 if ((positionAlpha1.y > 0) && (positionAlpha1.y < maxPos.y))
                 {
-                    GameObject.Find(translaterNames[i]).transform.position = positionAlpha1;
+                    usedVector = positionAlpha1;
                 }
+                // If the 2nd Alpha solution is in the accepted Range
                 else if ((positionAlpha2.y > 0) && (positionAlpha2.y < maxPos.y))
                 {
-                    GameObject.Find(translaterNames[i]).transform.position = positionAlpha2;
+                    usedVector = positionAlpha2;
                 }
+                // If both solutions are out of bound in the negative direction
                 else if ((positionAlpha1.y < 0) && (positionAlpha2.y < 0))
                 {
-                    GameObject.Find(translaterNames[i]).transform.position = startPositions[i];
+                    usedVector = startPositions[i];
                 }
+                // If both solutions are out of bound in the positive direction
                 else if ((positionAlpha1.y > maxPos.y) && (positionAlpha2.y > maxPos.y))
                 {
-                    GameObject.Find(translaterNames[i]).transform.position = maxPos;
+                    usedVector = maxPos;
                 }
+                // The following 4 case, if both solutions are out of bound in opposite direction
+                // --> Choose the solution that's closer to a corner point (Max or start points)
                 else if (Math.Abs(positionAlpha1.y) < Math.Abs(positionAlpha2.y - maxPos.y))
                 {
-                    GameObject.Find(translaterNames[i]).transform.position = startPositions[i];
+                    usedVector = startPositions[i];
                 }
                 else if (Math.Abs(positionAlpha2.y) < Math.Abs(positionAlpha1.y - maxPos.y))
                 {
-                    GameObject.Find(translaterNames[i]).transform.position = startPositions[i];
+                    usedVector = startPositions[i];
                 }
                 else if (Math.Abs(positionAlpha1.y) > Math.Abs(positionAlpha2.y - maxPos.y))
                 {
-                    GameObject.Find(translaterNames[i]).transform.position = maxPos;
+                    usedVector = maxPos;
                 }
                 else if (Math.Abs(positionAlpha2.y) > Math.Abs(positionAlpha1.y - maxPos.y))
                 {
-                    GameObject.Find(translaterNames[i]).transform.position = maxPos;
+                    usedVector = maxPos;
                 }
+
+                // Use chosen position vector
+                GameObject.Find(translaterNames[i]).transform.position = usedVector;
 
                 arduino.Open();
                 if (arduino.IsOpen)
