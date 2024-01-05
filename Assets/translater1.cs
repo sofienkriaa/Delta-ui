@@ -151,16 +151,21 @@ public class translater : MonoBehaviour
                 // Use chosen position vector
                 GameObject.Find(translaterNames[i]).transform.position = usedVector;
 
+                // Add panel in UI to calibrate Motion limits
+                // Casting needed because G-CODE uses integers
+                int newPos = (int)map(Vector3.Distance(startPositions[i], usedVector), 0, 10, -50, 50);
+                Debug.Log(i + ": " + newPos);
+
                 //  Get arduino SerialPort from Camera script
-                if (rotateCamera.arduino.IsOpen)
-                {
-                    rotateCamera.arduino.Write(i + "");
-                    Debug.Log(i);
-                }
-                else
-                {
-                    Debug.Log("Not open");
-                }
+                //if (rotateCamera.arduino.IsOpen)
+                //{
+                //    rotateCamera.arduino.Write(i + "");
+                //    Debug.Log(i);
+                //}
+                //else
+                //{
+                //    Debug.Log("Not open");
+                //}
 
             }
         }
@@ -194,5 +199,10 @@ public class translater : MonoBehaviour
                 }
             }
         }
+    }
+
+    float map(float s, float a1, float a2, float b1, float b2)
+    {
+        return b1 + (s - a1) * (b2 - b1) / (a2 - a1);
     }
 }
